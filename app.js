@@ -2,60 +2,89 @@
 
     const express = require("express");
     const bodyparser = require("body-parser");
+    const date = require(__dirname + "/date.js");
+    console.log(date());
+
+
     const app = express();
+
+    var items = ["Code " ,"Eat "," sleep"];
+    var workitems = [];
+    var udemycourses=[];
+
+    app.use(bodyparser.urlencoded({extended: true}));
+
+    app.use(express.static("public"));
 
     app.set('view engine','ejs');
 
+
+
     app.get("/",function(req, res){
+        let day = date();
 
-      var today = new Date();
-      var currentDay = today.getDay();
-      var day = "";
-
-      switch(currentDay){
-
-        case 0 :
-        day  = "Sunday";
-        break;
-        case 1 :
-        day = "Monday"
-        break;
-        case 2 :
-        day = "Tuesday"
-        break;
-        case 3 :
-        day = "Wednesday"
-        break;
-        case 4 :
-        day = "Thrusday"
-        break;
-        case 5 :
-        day = "Friday"
-        break;
-        case 6 :
-        day = "Saturday"
-        break;
-
-
-
-      }
-      res.render("list", {kindofday: day});
+      res.render("list", {ListTitle: day, newlistitems:items});
 
 
       });
 
 
+      app.post("/",function(req,res){
+        var item = req.body.nextitem;
+
+        if(req.body.list === "work"){
+          workitems.push(item);
+          res.redirect("/work");
+
+
+        }else if(req.body.list === "udemy"){
+          udemycourse.push(item);
+          res.redirect("/udemy");
+
+
+        }else{
+          items.push(item);
+          res.redirect("/");
+
+        }
+
+
+
+        console.log(item);
+
+
+      });
+
+
+      app.get("/work", function(req,res){
+        res.render("list",{ListTitle:"work list" ,newlistitems:workitems});
+
+
+      })
+
+      app.post("/work" ,function(req,res){
+        let item = req.body.newitem;
+        workitems.push(item);
+        res.redirect("/work");
+
+      })
+
+      app.get("/udemy", function(req ,res){
+        res.render("list",{ListTitle:"Udemy Course", newlistitems:udemycourses});
+      })
+
+      app.post("/udemy" ,function(req,res){
+        let item1 = req.body.newitem;
+        udemycourses.push(item1);
+        res.redirect("/udemy");
+      })
 
 
 
 
-
-
-
-
-
-
-
+      app.get("/about", function(req ,res){
+        res.render("about");
+      })
 
 
 
