@@ -2,15 +2,12 @@
 
     const express = require("express");
     const bodyparser = require("body-parser");
-    const date = require(__dirname + "/date.js");
-    console.log(date());
 
+    //console.log(date());
+    //creating a new mongoose and mongodb required
+    const mongoose = require("mongoose");
 
     const app = express();
-
-    var items = ["Code " ,"Eat "," sleep"];
-    var workitems = [];
-    var udemycourses=[];
 
     app.use(bodyparser.urlencoded({extended: true}));
 
@@ -18,12 +15,65 @@
 
     app.set('view engine','ejs');
 
+  //  var items = ["Code " ,"Eat "," sleep"];
+  //  var workitems = [];
+  //  var udemycourses=[];
+
+  //inseat of ussing array we will now use mongoose and mongodb to store data for our ToDoList
+
+  //setting a mongoose db server for todolist database
+  mongoose.connect("mongodb://localhost:27017/todolistDB",{useNewUrlParser:true, useUnifiedTopology: true});
+
+  // creating a schema for items so that we can store in ToDoList
+
+  const itemSchema = new mongoose.Schema({
+    name:{
+      type:String,
+      required:[true,"Please enter the item name"]
+    }
+  });
+
+  //now creating a mongose model for the item
+
+  const Item = mongoose.model("Item",itemSchema);
+
+  //creating 3 default items in todomist
+
+  const item1 = new Item({
+    name:"welcome to Your Todolist!"
+
+
+  });
+
+  const item2 = new Item({
+    name : " Hit the + button to add new item "
+  });
+
+  const item3 = new Item({
+    name:"<---- Hit this to delete an item"
+  });
+
+  //created a defaultItems array to store the  the default items
+  const defaultItems = [item1,item2,item3];
+
+  //inserting many items (defailt-items) in our Item model with help of mongose insertMany command
+
+  Item.insertMany(defaultItems,function(err){
+    if(err){
+      console.log(err);
+
+    }else{
+      console.log("Sucessfully saved in default items to DB.");
+    }
+  });
+
+
 
 
     app.get("/",function(req, res){
-        let day = date();
 
-      res.render("list", {ListTitle: day, newlistitems:items});
+
+      res.render("list", {ListTitle: "Today", newlistitems:items});
 
 
       });
@@ -69,15 +119,6 @@
 
       })
 
-      app.get("/udemy", function(req ,res){
-        res.render("list",{ListTitle:"Udemy Course", newlistitems:udemycourses});
-      })
-
-      app.post("/udemy" ,function(req,res){
-        let item1 = req.body.newitem;
-        udemycourses.push(item1);
-        res.redirect("/udemy");
-      })
 
 
 
