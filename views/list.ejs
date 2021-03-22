@@ -1,9 +1,24 @@
 
+
   <%- include("header") -%>
 
-    <div class="box1" id = "heading">
-      <h1> <%= ListTitle%> </h1>
+    <div class="box1" id = "heading"  data-tooltip = "Are you Sure you want to delete!!!">
+
+      <h1 > <%= ListTitle%> </h1>
+
+
     </div>
+
+    <div class="image1">
+        <img  class = "giphy1 " src="images/giphy1.gif" alt="">
+
+    </div>
+
+    <div class="image2">
+      <img class ="giphy2" src="images/giphy2.gif" alt="">
+
+    </div>
+
 
 
 
@@ -16,7 +31,9 @@
 
 
           <div class="item">
-          <input type="checkbox" name ="checkbox" onChange="this.form.submit()" value ="<%=item.id%>">
+
+            <i class="fas fa-trash-alt"></i>
+          <input type="checkbox"   class = " tooltip" data-tooltip = "Are you Sure you want to delete!!!" name ="checkbox" onChange="this.form.submit()" value ="<%=item.id%>">
 
               <p> <%= item.name %></p>
 

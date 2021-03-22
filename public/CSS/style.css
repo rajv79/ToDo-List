@@ -19,7 +19,7 @@
       box-shadow: 20px 20px 15px -5px rgba(0, 0, 0, 0.3);
       }
 
-      .box1 {
+      .box1{
       max-width: 400px;
       margin: 50px auto;
       background: #e4fbff;
@@ -48,6 +48,7 @@
       }
 
       .item:hover{
+
         transform: scale(1.2);
         background-color: #ccf2f4;
         color: white;
@@ -61,6 +62,48 @@
       font-size: 15px;
       border-radius: 100%;
       color: #FFF;
+    }
+
+    .image1{
+      width:200px;
+      height:200px;
+      border-radius: 100%;
+      float: right;
+      margin-left: 30px;
+      animation-name: example2;
+      animation-duration: 4s;
+      position: relative;
+      left:20px;
+    }
+
+    .giphy1{
+      width:200px;
+      height:200px;
+      border-radius: 100%;
+      float: right;
+      margin-left: 30px;
+
+    }
+    .image2{
+      width:100px;
+      height:100px;
+      border-radius: 100%;
+      float: left;
+      margin-left: 30px;
+      animation-name: example2;
+      animation-duration: 4s;
+      position: relative;
+      left:90px;
+
+    }
+    .giphy2{
+      width:200px;
+      height:200px;
+      border-radius: 100%;
+      float: right;
+      margin-left: 10px;
+
+
     }
 
     .tooltip:before,

@@ -192,9 +192,10 @@
         const listName  = req.body.listName;
         if(listName === "Today"){
 
-          Item.findByIdAndRemovr(checkitemId,function(err){
+          Item.findByIdAndRemove(checkitemId,function(err){
             if(!err){
               console.log("Sucessfully deleted checked item.");
+              res.redirect("/")
             }
           });
         }else{
