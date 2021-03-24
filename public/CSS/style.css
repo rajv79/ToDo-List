@@ -1,9 +1,17 @@
       html {
-      background-color: #E4E9FD;
-      background-image: -webkit-linear-gradient(65deg, #c9d6df 50%, #aa96da 50%);
 
-      min-height: 500px;
+      min-height: 1000px;
       font-family: 'helvetica neue';
+      }
+
+      body{
+        background-image: url("/images/night.jpg");
+        background-size: 100%;
+
+        background-attachment: fixed;
+        height:100%;
+        width:100%;
+
       }
 
       h1 {
@@ -105,59 +113,70 @@
 
 
     }
+    .time{
+      max-width: 400px;
+      margin: 50px auto;
+      background: white;
+      opacity: 0.5;
+      border-radius: 20px;
+      box-shadow: 20px 20px 15px -5px rgba(0, 0, 0, 0.3);
+    }
 
-    .tooltip:before,
-.tooltip:after {
-  position: absolute;
-  content: '';
-  opacity: 0;
-  transition: all 0.4s ease;
-}
 
-.tooltip:before {
-  border-width: 10px 8px 0 8px;
-  border-style: solid;
-  border-color: pink transparent transparent transparent;
-  top: -15px;
-   transform: translateY(20px);
-}
 
-.tooltip:after {
-  content: attr(data-tooltip);
-  background: pink;
-  width: 160px;
-  height: 40px;
-  font-size: 13px;
-  font-weight: 300;
-  top: -75px;
-  left: -10px;
-  padding: 10px;
-  border-radius: 5px;
-  letter-spacing: 1px;
-  transform: translateY(20px);
-}
 
-.tooltip:hover::before,
-.tooltip:hover::after {
-  opacity: 1;
-  transform: translateY(-2px);
-}
+          .tooltip:before,
+      .tooltip:after {
+        position: absolute;
+        content: '';
+        opacity: 0;
+        transition: all 0.4s ease;
+      }
 
-@keyframes shake {
-  0% {
-    transform: rotate(2deg);
-  }
-  50% {
-   transform: rotate(-3deg);
-  }
-  70% {
-    transform: rotate(3deg);
-  }
+      .tooltip:before {
+        border-width: 10px 8px 0 8px;
+        border-style: solid;
+        border-color: pink transparent transparent transparent;
+        top: -15px;
+         transform: translateY(20px);
+      }
 
-  100% {
-    transform: rotate(0deg);
-  }
-}
+      .tooltip:after {
+        content: attr(data-tooltip);
+        background: pink;
+        width: 160px;
+        height: 40px;
+        font-size: 13px;
+        font-weight: 300;
+        top: -75px;
+        left: -10px;
+        padding: 10px;
+        border-radius: 5px;
+        letter-spacing: 1px;
+        transform: translateY(20px);
+      }
+
+      .tooltip:hover::before,
+      .tooltip:hover::after {
+        opacity: 1;
+        transform: translateY(-2px);
+      }
+
+      @keyframes shake {
+        0% {
+          transform: rotate(2deg);
+        }
+        50% {
+         transform: rotate(-3deg);
+        }
+        70% {
+          transform: rotate(3deg);
+        }
+
+        100% {
+          transform: rotate(0deg);
+        }
+      }
 
 
 
