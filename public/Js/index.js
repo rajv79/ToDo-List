@@ -17,6 +17,41 @@
 
       });
 
+      $(".weather").on("click",function(){
+        $(".weather").text("hello ");
+      })
+
+
+
+
+        var date = new Date();
+        const time = date.getHours();
+
+        var wish = "";
+
+        if (time < 12) {
+        wish = "Good Morning!!";
+
+        } else if (time < 18) {
+        wish = "Good Afternoon !!";
+        $("body").on("mouseover",function(){
+          $("body").css("background-image","url(/images/afternoon.jpg)");
+        })
+
+        } else {
+        wish = "Good Evening!!";
+        $("body").on("mouseover",function(){
+          $("body").css("background-image","url(/images/lastnight2.jpg)");
+        })
+        }
+
+        $("#wish").on("mouseover",function(){
+          $("#wish").text(wish);
+        })
+
+
+
+
 
       var timeDisplay = document.getElementById("time");
 
@@ -28,6 +63,3 @@
       }
 
       setInterval(refreshTime, 1000);
-
-
-    
