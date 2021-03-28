@@ -25,7 +25,7 @@ app.set('view engine', 'ejs');
 //inseat of ussing array we will now use mongoose and mongodb to store data for our ToDoList
 
 //setting a mongoose db server for todolist database
-mongoose.connect("mongodb://localhost:27017/todolistDB", {
+mongoose.connect("mongodb+srv://Rajviv79:vivekraj123@vivekraj.54a6a.mongodb.net/todolistDB", {
   useNewUrlParser: true,
   useUnifiedTopology: true
 });
