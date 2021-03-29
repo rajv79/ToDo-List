@@ -101,7 +101,30 @@
       color: gold;
       font-size: 40px;
       font-family: cursive;
-      
+
+    }
+
+    .robot{
+      width:200px;
+      height:200px;
+      border-radius: 100%;
+      float: left;
+      margin-left: -10px;
+      position: relative;
+      right :80px;
+
+    }
+
+    .robot2{
+      width:200px;
+      height:200px;
+      border-radius: 100%;
+      float: right;
+      margin-right: : 200x;
+      position: relative;
+      right: 250px;
+
+
     }
     .image2{
       width:100px;
